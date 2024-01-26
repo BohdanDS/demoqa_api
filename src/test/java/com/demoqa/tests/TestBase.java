@@ -4,6 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.config.ConfigReader;
 import com.demoqa.config.ProjectConfiguration;
 import com.demoqa.config.web.WebConfig;
+import com.demoqa.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,6 +25,10 @@ public class TestBase {
 
     @AfterEach
     void shutDown() {
+        Attach.screenshotAs("Screenshot after test");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
         closeWebDriver();
     }
 
