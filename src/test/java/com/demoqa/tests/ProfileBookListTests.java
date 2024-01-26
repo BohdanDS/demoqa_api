@@ -8,6 +8,7 @@ import com.demoqa.models.DeleteSpecifiedBookRequestModel;
 import com.demoqa.models.IsbnModel;
 import com.demoqa.models.LoginResponseModel;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
@@ -25,6 +26,7 @@ public class ProfileBookListTests extends TestBase {
     String isbnId = "9781449331818";
 
     @Test
+    @Tag("ApiTest")
     @DisplayName("Check that specified book was added to user list")
     void addBookToProfileTest() {
         LoginResponseModel authResponse = AuthorizationApi.Login();
@@ -46,6 +48,7 @@ public class ProfileBookListTests extends TestBase {
     }
 
     @Test
+    @Tag("ApiTest")
     @DisplayName("Delete specified book from user list")
     void deleteSpecifiedBookById() {
         LoginResponseModel authResponse = step("Login API request", AuthorizationApi::Login);
